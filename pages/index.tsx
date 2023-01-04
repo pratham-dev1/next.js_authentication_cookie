@@ -8,6 +8,7 @@ const LoginPage = () => {
 export const getServerSideProps = (context:any)=>{
   if(context.req.cookies.token){
     return {
+      
       redirect: {
         destination: '/home',
         permanent: false,
