@@ -1,15 +1,17 @@
 import React from 'react'
-import Login from '../components/Login'
+import About from '../components/About'
 
-const LoginPage = () => {
-  return <Login/>
+const AboutPage = () => {
+  return <About/>
 }
 
+export default AboutPage
+
 export const getServerSideProps = (context:any)=>{
-  if(context.req.cookies.token){
+  if(!context.req.cookies.token){
     return {
       redirect: {
-        destination: '/home',
+        destination: '/',
         permanent: false,
       },
     }
@@ -18,5 +20,3 @@ export const getServerSideProps = (context:any)=>{
     props : {}
   }
 }
-
-export default LoginPage

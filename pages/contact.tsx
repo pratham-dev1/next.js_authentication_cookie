@@ -1,15 +1,16 @@
 import React from 'react'
-import Login from '../components/Login'
+import Contact from '../components/Contact'
 
-const LoginPage = () => {
-  return <Login/>
+const ContactPage = () => {
+  return <Contact/>
 }
 
+
 export const getServerSideProps = (context:any)=>{
-  if(context.req.cookies.token){
+  if(!context.req.cookies.token){
     return {
       redirect: {
-        destination: '/home',
+        destination: '/',
         permanent: false,
       },
     }
@@ -19,4 +20,4 @@ export const getServerSideProps = (context:any)=>{
   }
 }
 
-export default LoginPage
+export default ContactPage
